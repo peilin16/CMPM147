@@ -1,22 +1,84 @@
+
+
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Hello!</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="js/project.js" defer></script>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+  <title>Hello!</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="js/project.js" defer></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous"></script>
+
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-	crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <button id="clicker">
-      reroll it
-    </button>
-    <div
-      style="font-family: fantasy; border: thin solid gray; padding: 1em; margin: 1em; box-shadow: 2px 2px 5px gray; background: #ffe;"
-      id="box"
-    ></div>
-  </body>
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+	<!-- Load p5.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./js/project.js" DEFER></script>
+	<!-- Use me for a p5.js project -->
+	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment 01</h1>
+
+			<div class="minor-section">
+				
+              <button id="clicker">
+                  reroll it
+                </button>
+                <div
+                  style="font-family: fantasy; border: thin solid gray; padding: 1em; margin: 1em; box-shadow: 2px 2px 5px gray; background: #ffe;"
+                  id="box"
+                ></div>
+			</div>
+
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>Use random method to generate the different combo of text, and use jquery to setting the text in html</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p>Core functionality is handled through the template system:
+          JavaScript template strings with placeholder tokens (e.g. $challenge, $tool) that are replaced dynamically. Populate database: An object (populate) containing an array of context-specific terms categorized by game development roles (e.g. role), problem (problem), and tool (tool).
+          Regular expression processing: The script uses a regular expression (/\$(\w+)/) to identify and replace all tokens in the template by:
+          Matching any word prefixed with $
+          The generate() function recursively replaces tokens until there are no tokens left, then displays the result in an HTML box div. The user can regenerate the content via a button click event listener.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>I started by adapting the technical framework of the original fantasy quest generator, but completely reimagined the content, rewriting it to focus on the crises of game development. The biggest challenge was balancing technical terms (e.g. "pathfinding AI") with humorous elements ("Twitter fame"). Some filler word combinations could result in awkward phrasing, which required me to refine the word categories through iterative testing to ensure logical pairings.</p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<!-- Put link back to homepage here. -->
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+		</nav>
+	</main>
+</body>
 </html>
