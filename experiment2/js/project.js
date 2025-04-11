@@ -1,6 +1,6 @@
 // project.js - purpose and description here
-// Author: Your Name
-// Date:
+// Author: Peilin Huang
+// Date: April 11 2025
 
 // NOTE: This is how we might start a basic JavaaScript OOP project
 
@@ -8,7 +8,7 @@
 // In a longer project I like to put these in a separate file
 
 // define a class
-class MyProjectClass {
+class Experiment2Pocess {
   // constructor function
   constructor(param1, param2) {
     // set properties using 'this' keyword
@@ -24,7 +24,8 @@ class MyProjectClass {
 
 function main() {
   // create an instance of the class
-  let myInstance = new MyProjectClass("value1", "value2");
+  
+  let myInstance = new Experiment2Pocess("value1", "value2");
 
   // call a method on the instance
   myInstance.myMethod();
