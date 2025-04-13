@@ -78,7 +78,7 @@ function draw() {
   fill(grassColor);
   rect(0, height * 0.55, width, height * 0.45);
 
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 100; i++) {
     fill(random(60, 100), random(110, 160), random(60, 100), 120);
     ellipse(random(width), random(height * 0.55, height), random(3, 10));
   }
@@ -90,7 +90,11 @@ function draw() {
   stroke(treeColor);
   for (let i = 0; i < 9; i++) {
     let x = random(width);
-    let y = height;
+    if(x > 100 && x < 300){
+      i -= 1;
+      continue;
+    }
+    let y = random(height - 300, height); ;
     let h = random(450, 780);
     let lean = random(-0.3, 0.3);
     strokeWeight(random(3, 6));
