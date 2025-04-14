@@ -15,7 +15,7 @@ let myInstance;
 let canvasContainer;
 var centerHorz, centerVert;
 let seed = 219;
-
+const screenWidth = 400;
 const pathColor = "#d3d3d3";
 const leafColor = "#b7d3a8";
 const grassColor = "#6b944d";
@@ -51,7 +51,7 @@ function resizeScreen() {
 // setup() function is called once when the program starts
 function setup() {
   //alert("Hello World!")
-  //randomSeed(seed);
+  
   canvas = createCanvas(400, 700);
   canvas.parent("picture-container"); // attach canvas to the specific div
   noLoop(); // only draw when necessary
@@ -65,31 +65,31 @@ function reimage(){
 
 // draw() function is called repeatedly, it's the main animation loop
 function draw() {
-  
+  //randomSeed(seed);
   // === Far Background: Leafy canopy ===
   background(leafColor); // soft leafy green
   for (let i = 0; i < 120; i++) {
     fill(140 + random(-20, 20), 180 + random(-20, 20), 140 + random(-20, 20), 80);
     noStroke();
-    ellipse(random(width), random(height / 1.5), random(40, 90), random(30, 70));
+    ellipse(random(screenWidth), random(height / 1.5), random(40, 90), random(30, 70));
   }
 
   // === Close Background: Grass field ===
   fill(grassColor);
-  rect(0, height * 0.55, width, height * 0.45);
-
+  //rect(0, height * 0.55, width, height * 0.45);
+  rect(0, 490, 1000, 420);
   for (let i = 0; i < 100; i++) {
     fill(random(60, 100), random(110, 160), random(60, 100), 120);
-    ellipse(random(width), random(height * 0.55, height), random(3, 10));
+    ellipse(random(screenWidth), random(height * 0.55, height), random(3, 10));
   }
-
+  //alert(width)
   // === Road ===
   drawPath();
 
   // === Trees ===
   stroke(treeColor);
   for (let i = 0; i < 9; i++) {
-    let x = random(width);
+    let x = random(screenWidth);
     if(x > 100 && x < 300){
       i -= 1;
       continue;
@@ -108,32 +108,59 @@ function drawPath() {
 
   beginShape();
 
-  let pathTop = height * 0.5;
   let pathBottom = height;
+  let forkY = height * 0.5;
   let steps = 30;
   let offset = random(100);
 
-  // Left side of the path (from bottom to top)
+  // ===== Main path (bottom to fork point) =====
   for (let i = 0; i <= steps; i++) {
     let t = i / steps;
-    let y = lerp(pathBottom, pathTop, t);
+    let y = lerp(pathBottom, forkY, t);
     let curve = sin(y * 0.01 + offset) * 20;
-    let pathWidth = lerp(120, 30, t); // wide at bottom, narrow at top
+    let pathWidth = lerp(120, 40, t);
     let x = width / 2 + curve;
     vertex(x - pathWidth / 2, y);
   }
 
-  // Right side of the path (from top to bottom)
+  // === Left fork branch ===
+  for (let i = 0; i <= 10; i++) {
+    let t = i / 10;
+    let y = lerp(forkY, forkY - 60, t);
+    let x = width / 2 - 20 - 50 * t; // branch left
+    let w = lerp(50, 20, t);
+    vertex(x + w / 2, y);
+  }
+
+  // === Right fork branch ===
+  for (let i = 10; i >= 0; i--) {
+    let t = i / 10;
+    let y = lerp(forkY, forkY - 60, t);
+    let x = width / 2 + 20 + 50 * t; // branch right
+    let w = lerp(40, 20, t);
+    vertex(x - w / 2, y);
+  }
+
+  // === Back to bottom of the path ===
   for (let i = steps; i >= 0; i--) {
     let t = i / steps;
-    let y = lerp(pathBottom, pathTop, t);
+    let y = lerp(pathBottom, forkY, t);
     let curve = sin(y * 0.01 + offset) * 20;
-    let pathWidth = lerp(120, 30, t);
+    let pathWidth = lerp(120, 40, t);
     let x = width / 2 + curve;
     vertex(x + pathWidth / 2, y);
   }
 
   endShape(CLOSE);
+
+  // === Stone Tablet ===
+  fill("#999");
+  let stoneW = 40;
+  let stoneH = 50;
+  let stoneX = width / 2;
+  let stoneY = forkY - 60;
+  rectMode(CENTER);
+  rect(stoneX, stoneY, stoneW, stoneH, 5); // rounded corners for style
 }
 
 function drawTree(x, y, len, lean) {
