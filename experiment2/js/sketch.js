@@ -36,7 +36,7 @@ class MyClass {
 $("#reimage").click(function () {
   // Update the seed or randomness to get a new version
   seed += 1
-  redraw(); // p5 function to force re-drawing
+  reimage(); // p5 function to force re-drawing
 });
 
 
@@ -60,7 +60,7 @@ function setup() {
 }
 function reimage(){
   seed++;
-  redraw(); // force redraw after updating seed
+  draw(); // force redraw after updating seed
 }
 
 // draw() function is called repeatedly, it's the main animation loop
@@ -178,8 +178,8 @@ function drawTree(x, y, len, lean) {
     angle += random(-0.05, 0.05);
   }
 }
-
+/*
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
   redraw(); // allow interactivity if needed
-}
+}*/
