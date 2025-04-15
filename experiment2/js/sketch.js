@@ -17,6 +17,7 @@ var centerHorz, centerVert;
 let seed = 219;
 const screenWidth = 400;
 let ifredraw = true;
+let trees = [];
 let swayingEllipses = [];
 const pathColor = "#d3d3d3";
 const leafColor = "#b7d3a8";
@@ -54,25 +55,13 @@ function resizeScreen() {
 function setup() {
   canvas = createCanvas(400, 700);
   canvas.parent("picture-container");
-  for (let i = 0; i < 100; i++) {
-    fill(random(60, 100), random(110, 160), random(60, 100), 120);
-    ellipse(random(screenWidth), random(height * 0.55, height), random(3, 10));
-  }
+  
   // Generate animated ellipse data
-  for (let i = 0; i < 100; i++) {
-    swayingEllipses.push({
-      baseX: random(screenWidth),
-      baseY: random(height * 0.55, height),
-      size: random(3, 10),
-      swaySpeed: random(0.01, 0.03),
-      swayRange: random(5, 15),
-      color: color(random(60, 100), random(110, 160), random(60, 100), 120)
-    });
-  }
+
 
   // Enable animation
-  frameRate(60);
-  loop(); // remove noLoop if it's still in place
+  //frameRate(60);
+  //noloop(); // remove noLoop if it's still in place
 }
 function reimage(){
   seed++;
@@ -84,10 +73,24 @@ function reimage(){
 function draw() {
   //randomSeed(seed);
   // === Far Background: Leafy canopy ===
+  randomSeed(seed);
 
 
 
 /*
+for (let i = 0; i < 100; i++) {
+  swayingEllipses.push({
+    baseX: random(screenWidth),
+    baseY: random(height * 0.55, height),
+    size: random(3, 10),
+    swaySpeed: random(0.01, 0.03),
+    swayRange: random(5, 15),
+    color: color(random(60, 100), random(110, 160), random(60, 100), 120)
+  });
+}*/
+
+
+
 
   background(leafColor); // soft leafy green
   for (let i = 0; i < 120; i++) {
@@ -99,8 +102,15 @@ function draw() {
   // === Close Background: Grass field ===
   fill(grassColor);
   //rect(0, height * 0.55, width, height * 0.45);
-  rect(0, 490, 1000, 420);*/
-
+  rect(0, 500, 1000, 420);
+  // Draw wildflowers on the meadow using simple ellipses with a subtle sway effect
+  for (let i = 0; i < 300; i++) {
+    fill(random(60, 100), random(110, 120), random(60, 100), 120);
+    let x = random(screenWidth);
+    let sway = sin(frameCount / 20 + i) * 5;
+    x += sway
+    ellipse(x, random(height * 0.43, height), random(3, 10));
+  }
   //alert(width)
 
   // === Animated swaying ellipses in the grass ===
@@ -114,9 +124,9 @@ function draw() {
 
 
   // === Trees ===
-  if(ifredraw == false)
+  /*if(ifredraw == false)
     return;
-  ifredraw = false;
+  ifredraw = false;*/
   // === Road ===
   drawPath();
   stroke(treeColor);
@@ -195,20 +205,22 @@ function drawPath() {
   rect(stoneX, stoneY, stoneW, stoneH, 5); // rounded corners for style
 }
 
-function drawTree(x, y, len, lean) {
+function drawTree(x, y, len, baseLean) {
   let segments = int(len / 10);
   let prevX = x;
   let prevY = y;
 
-  // A random base angle for each tree to give variation
-  let baseAngle = lean + random(-0.2, 0.2);
+  // Default sway
+  let angle = baseLean;
+
+  // Check mouse proximity (adjust radius as needed)
+  let distance = dist(mouseX, mouseY, x, y);
+  if (distance < 70) {
+    let swing = sin(frameCount * 0.1) * 0.4; // swinging motion
+    angle += swing/4;
+  }
 
   for (let i = 0; i < segments; i++) {
-    // Create sway by adding a small oscillating component
-    let sway = sin(i * 0.5 + random(-0.5, 0.5)) * 0.1;
-    let angle = baseAngle + sway;
-
-    // Tree segment length
     let dx = sin(angle) * 5;
     let dy = -10;
 
@@ -220,16 +232,18 @@ function drawTree(x, y, len, lean) {
     prevX = nextX;
     prevY = nextY;
 
-    // Slightly change the base angle for curvature
-    baseAngle += random(-0.03, 0.03);
+    angle += random(-0.03, 0.03); // natural curvature
   }
 }
 
 
 
 
-/*
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
-  redraw(); // allow interactivity if needed
-}*/
+  
+  //alert(x)
+
+
+  reimage(); // allow interactivity if needed
+}
