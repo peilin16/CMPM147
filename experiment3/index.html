@@ -54,17 +54,40 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>Overworld Map:
+
+					Generated using Perlin noise to create natural terrain with snow, lakes, and forests.
+					
+					Special elements such as houses and treasures were intelligently placed on valid ground tiles.
+					
+					Water edges were blended using auto-tiling for visual polish.
+					
+					Dungeon Map:
+					
+					Generated using structured logic that places non-overlapping, spaced rooms.
+					
+					Rooms are connected with L-shaped corridors to ensure navigability.
+					
+					Interactive elements like totems and treasures were placed only on valid open floor spaces, avoiding corners and tight corridors.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>Dual World System: I can toggle between an animated overworld and a grid-based dungeon.
+					Visual Consistency: Both maps use the same tileset but different logic for generation.
+					Entity Rules:
+					Treasures and totems (T, O) are only placed on open floor areas.
+					Houses and treasures in the world appear only on valid terrain.
+					Edge Drawing: Water transitions in the world use tile-based auto-tiling based on adjacent types.
+					I use noise to generate the Grid, It ensures that a continuous block of graphics is generated for the lake surface. </p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>I contributed and learn the code about, Implementing a tile-based overworld generator using Perlin noise.
+					Designing and coding a custom dungeon generator that places rooms, enforces spacing, and connects them with corridors.
+					Writing logic for intelligent placement of interactive elements (treasures and totems) that considers spatial context.
+					Adding UI functionality for toggling between worlds, which enabled seamless visual switching between map types.</p>
 			</div>
 
 		</section>
