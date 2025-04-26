@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment 2 -  Living Impressions</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+	<!-- Load p5.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+
+	<script type="text/javascript"  src = "../js/p5.js"></script>
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!-- Use me for a JavaScript OOP Project -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js" integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ==" crossorigin="anonymous"></script>
+
+
+	<script src="js/xxhash.min.js" defer></script>
+    <script src="js/engine.js" defer></script>
+	
+
+
+
+	<script src="js/my_world2.js" defer></script>
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment X - Subject/Topic</h1>
+			<div class="minor-section">
+				<div id="container"></div>
+
+				<div class="minor-section">
+					
+				  </div>
+			</div>
+
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>I adapted an example of a forest path scene that consists of the following elements:
+					Distant background: a canopy of overlapping elliptical leaves.
+					Near background: a grass texture created with green ovals.
+					Path: a dynamic curved path drawn using beginShape() and vertex(), wider at the bottom and narrower at the top.
+					Trees: a tree trunk structure generated using line segments and random angles.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p>I used the p5 framework to draw the leaves and grass as the base layer.
+					The random tool of the p5 framework allows me to randomly generate a large number of points in two places to simulate leaves and grass, making the graphics fancy.
+					I use sin function to make anime, there are two anime in this picture, first is the grass flower will random swing, second is the tree will swing when your mouse overlap the tree bottom.
+				</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>This project was a long process. I wasn't sure what to do at first, but I gradually learned about p5's drawing module and learned it through reference examples. I know that reading documentation is important, and this experience has made me realize this even more deeply. The reference materials of p5.js are invaluable resources and have been a great help to me every time I encounter difficulties.</p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<!-- Put link back to homepage here. -->
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+		</nav>
+	</main>
+</body>
+</html>
