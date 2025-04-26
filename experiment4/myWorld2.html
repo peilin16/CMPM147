@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment 2 -  Living Impressions</title>
+	<title>Experiment 4 -  Infinite Worlds</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -51,24 +51,18 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>I adapted an example of a forest path scene that consists of the following elements:
-					Distant background: a canopy of overlapping elliptical leaves.
-					Near background: a grass texture created with green ovals.
-					Path: a dynamic curved path drawn using beginShape() and vertex(), wider at the bottom and narrower at the top.
-					Trees: a tree trunk structure generated using line segments and random angles.</p>
+				<p>World 2 features an infinite terrain made up of three tiles: light orange, light yellow, and white. Each terrain has a different vertical offset, and the entire landscape smoothly jumps in a synchronized rhythm, creating a world that seems to breathe. Players can click on any tile to place a Lumia character, who will move with her jumps, as if floating on the terrain.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>I used the p5 framework to draw the leaves and grass as the base layer.
-					The random tool of the p5 framework allows me to randomly generate a large number of points in two places to simulate leaves and grass, making the graphics fancy.
-					I use sin function to make anime, there are two anime in this picture, first is the grass flower will random swing, second is the tree will swing when your mouse overlap the tree bottom.
+				<p>World 2 uses Berlin noise to generate infinite terrain, assigning each tile one of three terrain types: light orange, light yellow, or white. Each terrain color also has a different vertical offset, creating a sense of natural terrain variation. A global millis()-based sine wave animation is applied to all tiles, making the entire world bounce smoothly over time. Clicking places a Rumia sprite at the coordinates of the clicked tile, which remain constant even if the world key changes.
 				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>This project was a long process. I wasn't sure what to do at first, but I gradually learned about p5's drawing module and learned it through reference examples. I know that reading documentation is important, and this experience has made me realize this even more deeply. The reference materials of p5.js are invaluable resources and have been a great help to me every time I encounter difficulties.</p>
+				<p>For World 2, I designed smooth, synchronized bounces between all tiles - it made the terrain feel like it was breathing. I learned how to combine noise-based terrain with global time-based animations to build a dynamic yet consistent world. World 2 satisfied the "infinite" condition by infinitely generating terrain as the camera scrolls. The changes in space are shown by different terrain types (light yellow, orange, and white) that change smoothly as you move. Key changes appear when you toggle keys, which re-adjusts the distribution of the terrain. The mouse can place Rumia and the animated character also rides the terrain waves.</p>
 			</div>
 
 		</section>

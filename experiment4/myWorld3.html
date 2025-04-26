@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment 2 -  Living Impressions</title>
+	<title>Experiment 4 -  Infinite Worlds</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -51,24 +51,19 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>I adapted an example of a forest path scene that consists of the following elements:
-					Distant background: a canopy of overlapping elliptical leaves.
-					Near background: a grass texture created with green ovals.
-					Path: a dynamic curved path drawn using beginShape() and vertex(), wider at the bottom and narrower at the top.
-					Trees: a tree trunk structure generated using line segments and random angles.</p>
+				<p>In World 3, the world is organized into staggered vertical columns that alternate between light yellow, light orange, and blank areas (simulating the background). Each tile gradually grows and shrinks, creating a "breathing" visual effect throughout the scene. Clicking a tile places a permanent Lumia sprite that stays put even if the world key changes.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>I used the p5 framework to draw the leaves and grass as the base layer.
-					The random tool of the p5 framework allows me to randomly generate a large number of points in two places to simulate leaves and grass, making the graphics fancy.
-					I use sin function to make anime, there are two anime in this picture, first is the grass flower will random swing, second is the tree will swing when your mouse overlap the tree bottom.
+				<p>World 3 introduces a modulo-based staggered system where columns are assigned roles based on (i % 3). Columns alternate between light yellow, light orange, and a white background (no tiles drawn). Each active tile scales up and down individually using a local sine wave animation, with the timing slightly offset based on the tile position, creating a breathing effect across the grid. Clicking a tile places a persistent Rumia image that remains tied to that tile regardless of keystrokes.
 				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>This project was a long process. I wasn't sure what to do at first, but I gradually learned about p5's drawing module and learned it through reference examples. I know that reading documentation is important, and this experience has made me realize this even more deeply. The reference materials of p5.js are invaluable resources and have been a great help to me every time I encounter difficulties.</p>
+				<p>
+					For World 3, I made column-based staggered shading, independent breathing animations, and a persistent Rumia placement mechanic. The low point was making sure the timing of the tile scaling animations was accurate and didn't cause visual glitches. The variation in World 3's space comes from alternating yellow and orange columns, creating a rhythmic change as you scroll. The change in tonality controls which tiles turn yellow or orange after the world resets. Signs of life are achieved through breathing scaling effects and placing living Rumia sprites on tiles.</p>
 			</div>
 
 		</section>

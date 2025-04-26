@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment 2 -  Living Impressions</title>
+	<title>Experiment 4 -  Infinite Worlds</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -55,24 +55,18 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>I adapted an example of a forest path scene that consists of the following elements:
-					Distant background: a canopy of overlapping elliptical leaves.
-					Near background: a grass texture created with green ovals.
-					Path: a dynamic curved path drawn using beginShape() and vertex(), wider at the bottom and narrower at the top.
-					Trees: a tree trunk structure generated using line segments and random angles.</p>
+				<p>In World 1, the scene presents an infinite grid, with each tile randomly displaying a Lumia character image. The distribution of Lumia is determined by the world key, meaning that different keys will generate different layouts while maintaining consistent randomness. The player can click on any tile to temporarily raise the Lumia image upwards.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>I used the p5 framework to draw the leaves and grass as the base layer.
-					The random tool of the p5 framework allows me to randomly generate a large number of points in two places to simulate leaves and grass, making the graphics fancy.
-					I use sin function to make anime, there are two anime in this picture, first is the grass flower will random swing, second is the tree will swing when your mouse overlap the tree bottom.
+				<p>World 1 uses a key-based random generation system, where the Lumia image for each tile is chosen based on a hash of the world key and the tile coordinates. This ensures consistency between key changes, while introducing randomness between different keys. The world appears infinite by dynamically recalculating the tiles as the player moves the camera. 
 				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>This project was a long process. I wasn't sure what to do at first, but I gradually learned about p5's drawing module and learned it through reference examples. I know that reading documentation is important, and this experience has made me realize this even more deeply. The reference materials of p5.js are invaluable resources and have been a great help to me every time I encounter difficulties.</p>
+				<p>For World 1, World 1 meets the requirement of infinity because the blocks extend infinitely in all directions as the camera moves. The changes in space are represented by the Rumia blocks constantly changing in the world. Key changes occur when new keys are entered, which rearranges all Rumia blocks without changing the core rules. The rise animation when clicking the blocks gives signs of life, making the world feel like it is actively responding to the player's actions.</p>
 			</div>
 
 		</section>
