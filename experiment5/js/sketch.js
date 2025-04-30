@@ -33,6 +33,7 @@ function inspirationChanged(nextInspiration) {
   currentInspiration = nextInspiration;
   currentDesign = undefined;
   memory.innerHTML = "";
+  document.getElementById("previewImage").src = nextInspiration.assetUrl;
   setup();
 }
 
