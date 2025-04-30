@@ -23,7 +23,7 @@ function getInspirations() {
       },
       {
         name: "Rumia 4",
-        assetUrl: "img/rumia4.JPG",
+        assetUrl: "img/rumia4.jpg",
         credit: "Rumia Image 4",
         shapeType: "rect"
       }
