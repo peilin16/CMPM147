@@ -40,7 +40,7 @@ function p3_preload() {
   participantsImages.push(loadImage("img\\MaidFairy1_2.png"));
   participantsImages.push(loadImage("img\\MaidFairy2_1.png"));
   participantsImages.push(loadImage("img\\MaidFairy3_1.png"));
-  participantsImages.push(loadImage("img\\luna2.png"));
+  participantsImages.push(loadImage("img\\Luna2.png"));
   participantsImages.push(loadImage("img\\LilyBlack1.png"));
   participantsImages.push(loadImage("img\\reimu-fly-left1.png"));
   participantsImages.push(loadImage("img\\reimu-idle1.png"));
