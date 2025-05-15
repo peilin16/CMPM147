@@ -54,7 +54,15 @@
 		<div class="minor-section">
 			<h2>Description</h2>
 			<p>
+This project is a procedurally generated, tile-based world built with p5.js where the player controls Rumia, a sprite that moves one tile at a time by clicking on adjacent tiles. The world features an infinite scrolling camera that smoothly follows the player as she explores.
 
+The environment is populated with randomly generated elements including:
+
+Grass tiles for visual variety
+
+Meat tiles, which can be collected to increase an "Eating" counter
+
+Participants, Touhou characters that are draw by myself, and their respective sprites that move around the map in the CMPM120 final project. These characters are randomly placed on the map and can be interacted with by the player, such as collecting them or avoiding them.
 
 			</p>
 		</div>
@@ -62,7 +70,7 @@
 		<div class="minor-section">
 			<h2>Technical</h2>
 			<p>
-
+I integrated a new game element, party participants, to enhance the interactive tile world. These character sprites randomly appear on the tiles and act as obstacles for the player to move around. This combines: deterministic procedural collision/blocking logic, tile-based sprite rendering.
 
 			</p>
 		</div>
@@ -70,7 +78,12 @@
 		<div class="minor-section">
 			<h2>Reflection</h2>
 			<p>
-				
+				My design focused on:Designing Rumia's tile-by-tile movement and smooth camera following. Implementing Rumia's movement around the map Implementing 
+				grass and meat tiles. Creating a consistent and deterministic system for placing players on the map while avoiding overlapping Rumia or meat tiles.
+				 Displaying a UI element to track collected meat (Eating :N). This project taught me how a relatively simple tile engine can become complex and expressive when 
+				 multiple systems are layered together. I initially just mocked up a working example, but built a more dynamic system by incorporating movement, camera smoothing,
+				  random tile content, and interaction rules. This work made me think carefully about:Procedural generation consistency (why we use hash functions and seeds), 
+				  and How to avoid over-generation errors (e.g. infinite players)
 			</p>
 		</div>
 		<nav id="links" class="minor-section">
