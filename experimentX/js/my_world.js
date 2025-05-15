@@ -75,14 +75,8 @@ function p3_tileClicked(i, j) {
   let current = tileObjects[key];
 
   if (isLand) {
-    // Cycle between tree -> house -> none
-    if (current === "tree") {
-      tileObjects[key] = "house";
-    } else if (current === "house") {
-      delete tileObjects[key]; // remove object
-    } else {
-      tileObjects[key] = "tree";
-    }
+    tileObjects[key] = random(['tree', 'house']);
+
   } else {
     tileObjects[key] = current === "boat" ? null : "boat";
   }
@@ -119,13 +113,6 @@ function p3_drawTile(i, j) {
         fill(100, 150, 233, 64 + 256 * noise(-t + i / 5, j / 5, t));
     }
 
-  // Queue the object draw
-  let key = `${i},${j}`;
-  let obj = tileObjects[key];
-  if (obj) {
-    let [sx, sy] = worldToCamera([i, j], [camera_offset.x, camera_offset.y]);
-    objectsToDraw.push({ obj, x: sx, y: sy });
-  }
 
   beginShape();
   vertex(-tw, 0);
@@ -133,6 +120,18 @@ function p3_drawTile(i, j) {
   vertex(tw, 0);
   vertex(0, -th);
   endShape(CLOSE);
+  let key = `${i},${j}`;
+  let obj = tileObjects[key];
+  if (obj === "tree" && treeImage) {
+    imageMode(CENTER);
+    image(treeImage, 0, -th ); // position above tile
+  } else if (obj === "house" && houseImage) {
+    imageMode(CENTER);
+    image(houseImage, 0, -th);
+  } else if (obj === "boat" && boatImage) {
+    imageMode(CENTER);
+    image(boatImage, 0, -th);
+  }
 
   pop();
 }
