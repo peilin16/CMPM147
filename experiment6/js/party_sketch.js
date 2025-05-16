@@ -1,6 +1,8 @@
 
 "use strict";
-
+// project.js - purpose and description here
+// Author: Peilin Huang
+// Date: May 12 2025
 /* exported --
     p3_preload
     p3_setup
@@ -101,7 +103,6 @@ function p3_tileClicked(i, j) {
       rumia.i = i;
       rumia.j = j;
 
-      // Determine the movement direction based on the difference in indices
       let movementX = 0;
       let movementY = 0;
 
@@ -130,16 +131,11 @@ function p3_tileClicked(i, j) {
         direction = 'southwest';
         movementX = -tw * .1;
       } else if (di > 0 && dj > 0) {
-        // Move up-right (diagonal)
-        // direction = 'southeast';
         movementY = -th * .1;
 
       } else if (di < 0 && dj < 0) {
-        // Move down-left (diagonal)
-        // direction = 'northwest';
         movementY = th * .1;
       } else if (di < 0 && dj > 0) {
-        // Move down-right (diagonal)
         direction = 'northeast';
         movementX = tw * .1;
       }
